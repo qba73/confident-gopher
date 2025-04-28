@@ -45,6 +45,7 @@ func TestNeedsLicense(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
 			got := cars.NeedsLicense(test.kind)
 			if !cmp.Equal(test.want, got) {
 				t.Error(cmp.Diff(test.want, got))
